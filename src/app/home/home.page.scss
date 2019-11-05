@@ -1,4 +1,15 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+.swiper-slide {
+  display: block;
+}
+ion-slide > h2 {
+  margin-top: 0.8rem;
+}
+ion-slide > img {
+  max-height: 50%;
+  max-width: 100%;
+  margin: 12px 0;
 }
