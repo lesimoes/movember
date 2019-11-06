@@ -7,33 +7,53 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
+  public cards = [
+    {
+      title: "6 sinais de que você é um namorado abusivo",
+      subTitle: "Relacionamento",
+      img: "../../assets/images/card_abusivo.jpeg",
+      link: "https://papodehomem.com.br/6-sinais-de-que-voce-e-um-namorado-abusivo",
+      content: "Não importa se você acredita que todo o controle que você exerce sobre ela é para protegê-la ou algo assim.",
+      isNew: true,
+    },
+    {
+      title: "6 sinais de que você é um namorado abusivo",
+      subTitle: "Relacionamento",
+      img: "../../assets/images/card_abusivo.jpeg",
+      link: "https://papodehomem.com.br/6-sinais-de-que-voce-e-um-namorado-abusivo",
+      content: "Não importa se você acredita que todo o controle que você exerce sobre ela é para protegê-la ou algo assim.",
+      isNew: false,
+    },
+    {
+      title: "6 sinais de que você é um namorado abusivo",
+      subTitle: "Relacionamento",
+      img: "../../assets/images/card_abusivo.jpeg",
+      link: "https://papodehomem.com.br/6-sinais-de-que-voce-e-um-namorado-abusivo",
+      content: "Não importa se você acredita que todo o controle que você exerce sobre ela é para protegê-la ou algo assim.",
+      isNew: false,
+    },
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
+
   constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
   }
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  clickCard = (card) => {
+    console.log(card)
+  }
+
+  filterCards = (search) => {
+    const searchTerm = search.srcElement.value;
+    console.log(searchTerm)
+    const cardsFiltered = this.cards.filter((card) => {
+      if (card.title.indexOf(searchTerm) > 0)
+        return true;
+    })
+
+    console.log(cardsFiltered)
+    return cardsFiltered;
+  };
 }
