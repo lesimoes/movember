@@ -14,7 +14,7 @@
 
   <ion-list>
     
-    <ion-card *ngFor="let card of cards" (click)="clickCard(card)">
+    <ion-card *ngFor="let card of arrayCards" (click)="clickCard(card)">
       <img [src]="card.img" />
       <ion-card-header>
         <ion-card-subtitle> {{ card.subTitle }} </ion-card-subtitle>

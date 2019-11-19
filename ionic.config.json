@@ -1,5 +1,7 @@
 {
   "name": "movember",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

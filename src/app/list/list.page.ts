@@ -25,17 +25,19 @@ export class ListPage implements OnInit {
       isNew: false,
     },
     {
-      title: "6 sinais de que você é um namorado abusivo",
+      title: "Mengão perdeu",
       subTitle: "Relacionamento",
-      img: "../../assets/images/card_abusivo.jpeg",
+      img: "../../assets/images/card_broderagem.jpeg",
       link: "https://papodehomem.com.br/6-sinais-de-que-voce-e-um-namorado-abusivo",
       content: "Não importa se você acredita que todo o controle que você exerce sobre ela é para protegê-la ou algo assim.",
       isNew: false,
     },
   ];
 
-  constructor() {
+  public arrayCards;
 
+  constructor() {
+    this.arrayCards = this.cards;
   }
 
   ngOnInit() {
@@ -44,16 +46,26 @@ export class ListPage implements OnInit {
   clickCard = (card) => {
     console.log(card)
   }
-
+// PARA CADA CARACTER
   filterCards = (search) => {
+
     const searchTerm = search.srcElement.value;
     console.log(searchTerm)
-    const cardsFiltered = this.cards.filter((card) => {
+    console.log(searchTerm.length)
+
+    if (searchTerm.length == 0){
+      this.arrayCards = this.cards;
+      console.log('Chegou')
+      console.log(this.arrayCards)
+    }
+      
+
+    this.arrayCards = this.cards.filter((card) => {
       if (card.title.indexOf(searchTerm) > 0)
         return true;
     })
 
-    console.log(cardsFiltered)
-    return cardsFiltered;
+    // console.log(this.arrayCards)
+    // return arrayCards;
   };
 }
