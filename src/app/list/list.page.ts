@@ -46,25 +46,21 @@ export class ListPage implements OnInit {
   clickCard = (card) => {
     console.log(card)
   }
-// PARA CADA CARACTER
+
   filterCards = (search) => {
 
     const searchTerm = search.srcElement.value;
-    console.log(searchTerm)
-    console.log(searchTerm.length)
+    console.log(`Voce digitou: ${searchTerm}`)
+
+    this.arrayCards = this.cards.filter((card) => {
+      if (card.title.indexOf(searchTerm) > 0){
+        return true;
+      }
+    })
 
     if (searchTerm.length == 0){
       this.arrayCards = this.cards;
-      console.log('Chegou')
-      console.log(this.arrayCards)
     }
-      
-
-    this.arrayCards = this.cards.filter((card) => {
-      if (card.title.indexOf(searchTerm) > 0)
-        return true;
-    })
-
     // console.log(this.arrayCards)
     // return arrayCards;
   };

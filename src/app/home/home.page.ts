@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public hello = 'Leandro';
+  public hellos = ['Hello', 'World', 'Estácio']
+  public novoHellos;
+
+  constructor() {
+
+    console.log('KOEEEE')
+
+    this.novoHellos = this.hellos.map(value => {
+      return value.toUpperCase();
+    })
+
+  }
 
 }
