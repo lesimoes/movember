@@ -7,18 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  public hello = 'Leandro';
-  public hellos = ['Hello', 'World', 'Estácio']
-  public novoHellos;
-
   constructor() {
 
-    console.log('KOEEEE')
+    this.consultaApi();
 
-    this.novoHellos = this.hellos.map(value => {
-      return value.toUpperCase();
+  }
+
+  consultaApi(){
+    fetch('http://www.json-generator.com/api/json/get/cfjBorXJua?indent=2')
+    .then(response => response.json())  
+    .then(data => {
+      console.log(data)
     })
-
   }
 
 }
